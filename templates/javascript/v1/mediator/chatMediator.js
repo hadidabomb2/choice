@@ -1,3 +1,12 @@
+const NOT_IMPLEMENTED_ERROR = "Not implemented";
+const USER_PREFIX = "User ";
+const RECEIVED_INFIX = " received from ";
+const MESSAGE_SEPARATOR = ": ";
+
+function formatIncomingMessage(receiverId, senderId, message) {
+  return `${USER_PREFIX}${receiverId}${RECEIVED_INFIX}${senderId}${MESSAGE_SEPARATOR}${message}`;
+}
+
 export class ChatMediator {
   constructor() {
     this.participants = new Map();
@@ -27,12 +36,12 @@ export class Participant {
   }
 
   onMessage(_fromId, _message) {
-    throw new Error("Not implemented");
+    throw new Error(NOT_IMPLEMENTED_ERROR);
   }
 }
 
 export class UserParticipant extends Participant {
   onMessage(fromId, message) {
-    return `User ${this.id} received from ${fromId}: ${message}`;
+    return formatIncomingMessage(this.id, fromId, message);
   }
 }

@@ -1,3 +1,5 @@
+const EMPTY_BUFFER = "";
+
 export class TextSnapshot {
   constructor(state) {
     this.state = state;
@@ -6,7 +8,7 @@ export class TextSnapshot {
 
 export class TextEditor {
   constructor() {
-    this.buffer = "";
+    this.buffer = EMPTY_BUFFER;
   }
 
   append(text) {

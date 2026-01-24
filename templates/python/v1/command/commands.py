@@ -3,6 +3,8 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import List, Protocol
 
+EMPTY_BUFFER = ""
+
 
 class Command(Protocol):
     def execute(self) -> str:
@@ -11,7 +13,7 @@ class Command(Protocol):
 
 @dataclass(slots=True)
 class TextBuffer:
-    buffer: str = ""
+    buffer: str = EMPTY_BUFFER
 
     def append(self, text: str) -> None:
         self.buffer += text

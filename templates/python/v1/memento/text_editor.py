@@ -2,6 +2,8 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
+EMPTY_BUFFER = ""
+
 
 @dataclass(frozen=True, slots=True)
 class TextSnapshot:
@@ -10,7 +12,7 @@ class TextSnapshot:
 
 class TextEditor:
     def __init__(self) -> None:
-        self._buffer = ""
+        self._buffer = EMPTY_BUFFER
 
     def append(self, text: str) -> None:
         self._buffer += text

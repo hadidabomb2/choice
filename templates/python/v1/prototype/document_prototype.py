@@ -16,4 +16,8 @@ class DocumentPrototype:
         return DocumentPrototype(self.title, list(self.paragraphs))
 
     def summary(self) -> str:
-        return f"Document{{title='{self.title}', paragraphs={len(self.paragraphs)}}}"
+        return _format_summary(self.title, len(self.paragraphs))
+
+
+def _format_summary(title: str, paragraph_count: int) -> str:
+    return f"Document{{title='{title}', paragraphs={paragraph_count}}}"

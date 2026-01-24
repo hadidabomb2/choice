@@ -10,6 +10,10 @@ public class StyledText {
     }
 
     public String render() {
+        return renderStyle(style, text);
+    }
+
+    private String renderStyle(TextStyle style, String text) {
         return "[" + style.getFontFamily() + "," + style.getFontSize() + "," + style.getColorHex()
                 + ",bold=" + style.isBold() + ",italic=" + style.isItalic() + "] " + text;
     }

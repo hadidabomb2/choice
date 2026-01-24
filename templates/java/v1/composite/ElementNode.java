@@ -23,6 +23,10 @@ public class ElementNode implements Node {
         for (Node child : children) {
             joiner.add(child.render());
         }
-        return "<" + tag + ">" + joiner + "</" + tag + ">";
+        return renderElement(tag, joiner.toString());
+    }
+
+    private String renderElement(String tag, String content) {
+        return "<" + tag + ">" + content + "</" + tag + ">";
     }
 }

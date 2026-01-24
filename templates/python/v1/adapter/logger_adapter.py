@@ -10,4 +10,8 @@ class LegacyLoggerAdapter:
     legacy: LegacyLogger
 
     def log(self, level: str, message: str) -> None:
-        self.legacy.write(f"[{level}] {message}")
+        self.legacy.write(_format_message(level, message))
+
+
+def _format_message(level: str, message: str) -> str:
+    return f"[{level}] {message}"

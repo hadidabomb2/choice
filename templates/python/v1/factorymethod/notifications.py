@@ -2,17 +2,20 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
+EMAIL_PREFIX = "Email: "
+SMS_PREFIX = "SMS: "
+
 
 @dataclass(slots=True)
 class EmailNotification:
     def send(self, message: str) -> str:
-        return f"Email: {message}"
+        return f"{EMAIL_PREFIX}{message}"
 
 
 @dataclass(slots=True)
 class SmsNotification:
     def send(self, message: str) -> str:
-        return f"SMS: {message}"
+        return f"{SMS_PREFIX}{message}"
 
 
 class NotificationCreator:
@@ -20,7 +23,7 @@ class NotificationCreator:
         notification = self.create_notification()
         return notification.send(message)
 
-    def create_notification(self):
+    def create_notification(self) -> "EmailNotification | SmsNotification":
         raise NotImplementedError
 
 

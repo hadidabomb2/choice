@@ -2,6 +2,12 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
+SUMMARY_PREFIX = "Summary report: "
+DETAIL_PREFIX = "Detailed report:"
+DETAIL_HEADER = "[DETAIL]"
+LINE_BREAK = "\n"
+BULLET_PREFIX = "- "
+
 
 @dataclass(slots=True)
 class BaseReportGenerator:
@@ -23,13 +29,19 @@ class BaseReportGenerator:
 @dataclass(slots=True)
 class SummaryReportGenerator(BaseReportGenerator):
     def build_body(self, normalized: str) -> str:
-        return f"Summary report: {normalized}"
+        return f"{SUMMARY_PREFIX}{normalized}"
 
 
 @dataclass(slots=True)
 class DetailedReportGenerator(BaseReportGenerator):
     def build_body(self, normalized: str) -> str:
-        return "Detailed report:\n- " + normalized.replace("\n", "\n- ")
+        return _format_bulleted_body(normalized)
 
     def format(self, body: str) -> str:
-        return "[DETAIL]\n" + body
+        return f"{DETAIL_HEADER}{LINE_BREAK}{body}"
+
+
+def _format_bulleted_body(text: str) -> str:
+    return f"{DETAIL_PREFIX}{LINE_BREAK}{BULLET_PREFIX}" + text.replace(
+        LINE_BREAK, f"{LINE_BREAK}{BULLET_PREFIX}"
+    )

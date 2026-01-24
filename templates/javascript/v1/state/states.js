@@ -1,14 +1,27 @@
+const DRAFT_STATE_NAME = "draft";
+const PUBLISHED_STATE_NAME = "published";
+const DRAFT_PREFIX = "DRAFT: ";
+const PUBLISHED_PREFIX = "PUBLISHED: ";
+
+function formatDraft(input) {
+  return `${DRAFT_PREFIX}${input}`;
+}
+
+function formatPublished(input) {
+  return `${PUBLISHED_PREFIX}${input.toUpperCase()}`;
+}
+
 export const draftState = {
-  name: "draft",
+  name: DRAFT_STATE_NAME,
   handle(input) {
-    return `DRAFT: ${input}`;
+    return formatDraft(input);
   }
 };
 
 export const publishedState = {
-  name: "published",
+  name: PUBLISHED_STATE_NAME,
   handle(input) {
-    return `PUBLISHED: ${input.toUpperCase()}`;
+    return formatPublished(input);
   }
 };
 

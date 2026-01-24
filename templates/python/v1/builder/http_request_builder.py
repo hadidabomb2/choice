@@ -3,6 +3,10 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Dict
 
+DEFAULT_METHOD = "GET"
+DEFAULT_BODY = ""
+DEFAULT_TIMEOUT_MS = 5000
+
 
 @dataclass(frozen=True, slots=True)
 class HttpRequest:
@@ -18,11 +22,11 @@ class HttpRequest:
 
 @dataclass(slots=True)
 class HttpRequestBuilder:
-    method: str = "GET"
+    method: str = DEFAULT_METHOD
     url: str | None = None
     headers: Dict[str, str] = field(default_factory=dict)
-    body: str = ""
-    timeout_ms: int = 5000
+    body: str = DEFAULT_BODY
+    timeout_ms: int = DEFAULT_TIMEOUT_MS
 
     def set_url(self, url: str) -> "HttpRequestBuilder":
         self.url = url

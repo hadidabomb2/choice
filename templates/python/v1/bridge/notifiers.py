@@ -4,6 +4,9 @@ from dataclasses import dataclass
 
 from bridge.formatters import Formatter
 
+EMAIL_LABEL = "email"
+SMS_LABEL = "sms"
+
 
 @dataclass(slots=True)
 class Notifier:
@@ -16,10 +19,10 @@ class Notifier:
 @dataclass(slots=True)
 class EmailNotifier(Notifier):
     def notify(self, message: str) -> str:
-        return self.formatter.format("email", message)
+        return self.formatter.format(EMAIL_LABEL, message)
 
 
 @dataclass(slots=True)
 class SmsNotifier(Notifier):
     def notify(self, message: str) -> str:
-        return self.formatter.format("sms", message)
+        return self.formatter.format(SMS_LABEL, message)

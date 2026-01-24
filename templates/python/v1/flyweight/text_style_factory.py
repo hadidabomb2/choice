@@ -19,10 +19,7 @@ class StyledText:
     style: TextStyle
 
     def render(self) -> str:
-        return (
-            f"[{self.style.font_family},{self.style.font_size},{self.style.color_hex},"
-            f"bold={self.style.bold},italic={self.style.italic}] {self.text}"
-        )
+        return _render_style(self.style, self.text)
 
 
 class TextStyleFactory:
@@ -44,3 +41,10 @@ class TextStyleFactory:
 
     def cache_size(self) -> int:
         return len(self._cache)
+
+
+def _render_style(style: TextStyle, text: str) -> str:
+    return (
+        f"[{style.font_family},{style.font_size},{style.color_hex},"
+        f"bold={style.bold},italic={style.italic}] {text}"
+    )

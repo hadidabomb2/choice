@@ -9,6 +9,10 @@ export class GreetingFacade {
     const shape = ShapeFactory.create(shapeKind);
     const drawing = shape.draw();
 
-    return { greeting, drawing };
+    return createFacadeResult(greeting, drawing);
   }
+}
+
+function createFacadeResult(greeting, drawing) {
+  return { greeting, drawing };
 }

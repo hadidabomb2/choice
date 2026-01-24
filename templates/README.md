@@ -30,6 +30,13 @@ Each template folder must include:
 
 ---
 
+## Style Guidelines
+
+- Keep entry files focused with small, named example functions.
+- Replace numeric literals in examples with named constants.
+
+---
+
 ## template.json (example)
 
 ```json

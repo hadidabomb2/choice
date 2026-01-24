@@ -20,4 +20,8 @@ class GreetingFacade:
         shape = ShapeFactory.create(shape_kind)
         drawing = shape.draw()
 
-        return FacadeResult(greeting=greeting, drawing=drawing)
+        return _create_facade_result(greeting, drawing)
+
+
+def _create_facade_result(greeting: str, drawing: str) -> FacadeResult:
+    return FacadeResult(greeting=greeting, drawing=drawing)

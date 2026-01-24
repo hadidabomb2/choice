@@ -1,24 +1,29 @@
+const LIGHT_BUTTON_LABEL = "LightButton";
+const LIGHT_CHECKBOX_LABEL = "LightCheckbox";
+const DARK_BUTTON_LABEL = "DarkButton";
+const DARK_CHECKBOX_LABEL = "DarkCheckbox";
+
 export class LightButton {
   render() {
-    return "LightButton";
+    return LIGHT_BUTTON_LABEL;
   }
 }
 
 export class LightCheckbox {
   render() {
-    return "LightCheckbox";
+    return LIGHT_CHECKBOX_LABEL;
   }
 }
 
 export class DarkButton {
   render() {
-    return "DarkButton";
+    return DARK_BUTTON_LABEL;
   }
 }
 
 export class DarkCheckbox {
   render() {
-    return "DarkCheckbox";
+    return DARK_CHECKBOX_LABEL;
   }
 }
 

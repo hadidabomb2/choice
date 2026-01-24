@@ -1,6 +1,12 @@
+const LABEL_SEPARATOR = ": ";
+
+function formatLabelMessage(label, message) {
+  return `${label}${LABEL_SEPARATOR}${message}`;
+}
+
 export const textFormatter = {
   format(label, message) {
-    return `${label}: ${message}`;
+    return formatLabelMessage(label, message);
   }
 };
 

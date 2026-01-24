@@ -1,3 +1,7 @@
+const DEFAULT_METHOD = "GET";
+const DEFAULT_BODY = "";
+const DEFAULT_TIMEOUT_MS = 5000;
+
 export class HttpRequest {
   constructor({ method, url, headers, body, timeoutMs }) {
     this.method = method;
@@ -8,17 +12,18 @@ export class HttpRequest {
   }
 
   summary() {
-    return `${this.method} ${this.url} (headers=${Object.keys(this.headers).length}, timeoutMs=${this.timeoutMs})`;
+    const headerCount = Object.keys(this.headers).length;
+    return `${this.method} ${this.url} (headers=${headerCount}, timeoutMs=${this.timeoutMs})`;
   }
 }
 
 export class HttpRequestBuilder {
   constructor() {
-    this.method = "GET";
+    this.method = DEFAULT_METHOD;
     this.url = null;
     this.headers = {};
-    this.body = "";
-    this.timeoutMs = 5000;
+    this.body = DEFAULT_BODY;
+    this.timeoutMs = DEFAULT_TIMEOUT_MS;
   }
 
   setUrl(url) {

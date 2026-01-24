@@ -1,11 +1,14 @@
 package chain;
 
 public class AuthHandler extends Handler {
+    private static final String TOKEN_PREFIX = "token:";
+    private static final String AUTH_FAILED_PREFIX = "Auth failed for request: ";
+
     @Override
     protected String process(Request request) {
-        if (request.getPayload().contains("token:")) {
+        if (request.getPayload().contains(TOKEN_PREFIX)) {
             return null;
         }
-        return "Auth failed for request: " + request.getId();
+        return AUTH_FAILED_PREFIX + request.getId();
     }
 }

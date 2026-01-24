@@ -1,14 +1,18 @@
 const cache = new Map();
+const KEY_SEPARATOR = "|";
 
 function makeKey(fontFamily, fontSize, colorHex, bold, italic) {
-  return `${fontFamily}|${fontSize}|${colorHex}|${bold}|${italic}`;
+  return [fontFamily, fontSize, colorHex, bold, italic].join(KEY_SEPARATOR);
+}
+
+function createStyle(fontFamily, fontSize, colorHex, bold, italic) {
+  return Object.freeze({ fontFamily, fontSize, colorHex, bold, italic });
 }
 
 export function getTextStyle(fontFamily, fontSize, colorHex, bold, italic) {
   const key = makeKey(fontFamily, fontSize, colorHex, bold, italic);
   if (!cache.has(key)) {
-    const style = Object.freeze({ fontFamily, fontSize, colorHex, bold, italic });
-    cache.set(key, style);
+    cache.set(key, createStyle(fontFamily, fontSize, colorHex, bold, italic));
   }
 
   return cache.get(key);

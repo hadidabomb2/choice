@@ -3,6 +3,11 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Protocol
 
+LIGHT_BUTTON_LABEL = "LightButton"
+LIGHT_CHECKBOX_LABEL = "LightCheckbox"
+DARK_BUTTON_LABEL = "DarkButton"
+DARK_CHECKBOX_LABEL = "DarkCheckbox"
+
 
 class Button(Protocol):
     def render(self) -> str:
@@ -25,25 +30,25 @@ class UiFactory(Protocol):
 @dataclass(slots=True)
 class LightButton:
     def render(self) -> str:
-        return "LightButton"
+        return LIGHT_BUTTON_LABEL
 
 
 @dataclass(slots=True)
 class LightCheckbox:
     def render(self) -> str:
-        return "LightCheckbox"
+        return LIGHT_CHECKBOX_LABEL
 
 
 @dataclass(slots=True)
 class DarkButton:
     def render(self) -> str:
-        return "DarkButton"
+        return DARK_BUTTON_LABEL
 
 
 @dataclass(slots=True)
 class DarkCheckbox:
     def render(self) -> str:
-        return "DarkCheckbox"
+        return DARK_CHECKBOX_LABEL
 
 
 @dataclass(slots=True)

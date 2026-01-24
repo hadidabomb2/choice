@@ -30,7 +30,11 @@ export class RenderVisitor {
   }
 
   visitElement(elementNode) {
-    const inner = elementNode.children.map((c) => c.accept(this)).join("");
-    return `<${elementNode.tag}>${inner}</${elementNode.tag}>`;
+    const inner = elementNode.children.map((child) => child.accept(this)).join("");
+    return renderElement(elementNode.tag, inner);
   }
+}
+
+function renderElement(tag, inner) {
+  return `<${tag}>${inner}</${tag}>`;
 }

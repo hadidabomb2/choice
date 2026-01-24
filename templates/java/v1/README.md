@@ -32,3 +32,7 @@ Includes:
 Run:
 - `javac app/Main.java decorator/*.java factory/*.java factorymethod/*.java abstractfactory/*.java strategy/*.java facade/*.java flyweight/*.java proxy/*.java composite/*.java bridge/*.java adapter/*.java builder/*.java prototype/*.java singleton/*.java chain/*.java command/*.java iterator/*.java mediator/*.java memento/*.java observer/*.java state/*.java templatemethod/*.java visitor/*.java`
 - `java app.Main`
+
+Style Notes:
+- `app/Main.java` keeps each pattern demo in a small, named method.
+- Numeric literals are promoted to named constants for clarity.

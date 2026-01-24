@@ -21,11 +21,15 @@ public class Document implements Prototype<Document> {
     }
 
     public String summary() {
-        return "Document{title='" + title + "', paragraphs=" + paragraphs.size() + "}";
+        return formatSummary(title, paragraphs.size());
     }
 
     @Override
     public Document clonePrototype() {
         return new Document(title, new ArrayList<>(paragraphs));
+    }
+
+    private String formatSummary(String title, int paragraphCount) {
+        return "Document{title='" + title + "', paragraphs=" + paragraphCount + "}";
     }
 }

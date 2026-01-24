@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+EMPTY_DEFAULT = ""
+
+
 class AppConfig:
     _instance: "AppConfig | None" = None
 
@@ -12,5 +15,5 @@ class AppConfig:
     def set(self, key: str, value: str) -> None:
         self._values[key] = value
 
-    def get(self, key: str, default_value: str = "") -> str:
+    def get(self, key: str, default_value: str = EMPTY_DEFAULT) -> str:
         return self._values.get(key, default_value)

@@ -3,6 +3,10 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Dict
 
+USER_PREFIX = "User "
+RECEIVED_INFIX = " received from "
+MESSAGE_SEPARATOR = ": "
+
 
 class MessageMediator:
     def register(self, participant: "Participant") -> None:
@@ -40,4 +44,8 @@ class ChatMediator(MessageMediator):
 @dataclass(slots=True)
 class UserParticipant(Participant):
     def on_message(self, from_id: str, message: str) -> str:
-        return f"User {self.id} received from {from_id}: {message}"
+        return _format_incoming_message(self.id, from_id, message)
+
+
+def _format_incoming_message(receiver_id: str, sender_id: str, message: str) -> str:
+    return f"{USER_PREFIX}{receiver_id}{RECEIVED_INFIX}{sender_id}{MESSAGE_SEPARATOR}{message}"

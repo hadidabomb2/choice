@@ -1,3 +1,11 @@
+import { performance } from "node:perf_hooks";
+
+const DURATION_PRECISION = 3;
+
+function formatDurationMs(endMs, startMs) {
+  return (endMs - startMs).toFixed(DURATION_PRECISION);
+}
+
 export function createTimedProxy(target) {
   return new Proxy(target, {
     get(obj, prop, receiver) {
@@ -7,10 +15,11 @@ export function createTimedProxy(target) {
       }
 
       return function (...args) {
-        const start = performance.now();
+        const startTimeMs = performance.now();
         const result = value.apply(this, args);
-        const end = performance.now();
-        console.log(`PROXY: ${String(prop)} took ${(end - start).toFixed(3)} ms`);
+        const endTimeMs = performance.now();
+        const durationMs = formatDurationMs(endTimeMs, startTimeMs);
+        console.log(`PROXY: ${String(prop)} took ${durationMs} ms`);
         return result;
       };
     }

@@ -1,18 +1,27 @@
+const FRIENDLY_TEMPLATE = "Hey {name}, great to meet you.";
+const FORMAL_TEMPLATE = "Hello {name}. It is a pleasure to meet you.";
+const UPPERCASE_TEMPLATE = "Hello {name} from strategy";
+const NAME_TOKEN = "{name}";
+
+function formatTemplate(template, name) {
+  return template.replace(NAME_TOKEN, name);
+}
+
 export const friendlyStrategy = {
   format(name) {
-    return `Hey ${name}, great to meet you.`;
+    return formatTemplate(FRIENDLY_TEMPLATE, name);
   }
 };
 
 export const formalStrategy = {
   format(name) {
-    return `Hello ${name}. It is a pleasure to meet you.`;
+    return formatTemplate(FORMAL_TEMPLATE, name);
   }
 };
 
 export const uppercaseStrategy = {
   format(name) {
-    return `HELLO ${name} FROM STRATEGY`.toUpperCase();
+    return formatTemplate(UPPERCASE_TEMPLATE, name).toUpperCase();
   }
 };
 

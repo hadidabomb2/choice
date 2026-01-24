@@ -3,6 +3,11 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Protocol
 
+FRIENDLY_TEMPLATE = "Hey {name}, great to meet you."
+FORMAL_TEMPLATE = "Hello {name}. It is a pleasure to meet you."
+UPPERCASE_TEMPLATE = "Hello {name} from strategy"
+NAME_TOKEN = "{name}"
+
 
 class GreeterStrategy(Protocol):
     def format(self, name: str) -> str:
@@ -12,19 +17,19 @@ class GreeterStrategy(Protocol):
 @dataclass(slots=True)
 class FriendlyStrategy:
     def format(self, name: str) -> str:
-        return f"Hey {name}, great to meet you."
+        return _format_template(FRIENDLY_TEMPLATE, name)
 
 
 @dataclass(slots=True)
 class FormalStrategy:
     def format(self, name: str) -> str:
-        return f"Hello {name}. It is a pleasure to meet you."
+        return _format_template(FORMAL_TEMPLATE, name)
 
 
 @dataclass(slots=True)
 class UppercaseStrategy:
     def format(self, name: str) -> str:
-        return f"HELLO {name} FROM STRATEGY".upper()
+        return _format_template(UPPERCASE_TEMPLATE, name).upper()
 
 
 @dataclass(slots=True)
@@ -36,3 +41,7 @@ class GreeterContext:
 
     def greet(self, name: str) -> str:
         return self.strategy.format(name)
+
+
+def _format_template(template: str, name: str) -> str:
+    return template.replace(NAME_TOKEN, name)

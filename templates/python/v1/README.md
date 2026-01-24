@@ -30,3 +30,7 @@ Includes:
 
 Run:
 - `python app/main.py`
+
+Style Notes:
+- `app/main.py` keeps each pattern demo in a small, named function.
+- Numeric literals are promoted to named constants for clarity.

@@ -27,6 +27,10 @@ Templates can include placeholders:
 
 These are automatically replaced during `choice init`.
 
+## Style Notes
+- Templates keep example entrypoints split into small functions.
+- Numeric literals in examples are promoted to named constants.
+
 ## Plugin Registry
 The file `plugins/registry.json` is a simple extensible registry that lists
 available plugins. This is a placeholder for future plugin management.

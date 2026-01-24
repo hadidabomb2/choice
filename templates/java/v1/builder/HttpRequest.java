@@ -5,6 +5,9 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class HttpRequest {
+    private static final String DEFAULT_METHOD = "GET";
+    private static final String DEFAULT_BODY = "";
+    private static final int DEFAULT_TIMEOUT_MS = 5000;
     private final String method;
     private final String url;
     private final Map<String, String> headers;
@@ -44,11 +47,11 @@ public class HttpRequest {
     }
 
     public static class Builder {
-        private String method = "GET";
+        private String method = DEFAULT_METHOD;
         private String url;
         private final Map<String, String> headers = new LinkedHashMap<>();
-        private String body = "";
-        private int timeoutMs = 5000;
+        private String body = DEFAULT_BODY;
+        private int timeoutMs = DEFAULT_TIMEOUT_MS;
 
         public Builder url(String url) {
             this.url = url;

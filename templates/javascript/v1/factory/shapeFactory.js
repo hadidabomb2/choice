@@ -1,6 +1,11 @@
+const NOT_IMPLEMENTED_ERROR = "Not implemented";
+const SHAPE_CIRCLE = "circle";
+const SHAPE_SQUARE = "square";
+const UNKNOWN_SHAPE_PREFIX = "Unknown shape: ";
+
 class Shape {
   draw() {
-    throw new Error("Not implemented");
+    throw new Error(NOT_IMPLEMENTED_ERROR);
   }
 }
 
@@ -16,15 +21,18 @@ class Square extends Shape {
   }
 }
 
+const SHAPE_BUILDERS = new Map([
+  [SHAPE_CIRCLE, () => new Circle()],
+  [SHAPE_SQUARE, () => new Square()]
+]);
+
 export class ShapeFactory {
   static create(kind) {
-    switch (kind.toLowerCase()) {
-      case "circle":
-        return new Circle();
-      case "square":
-        return new Square();
-      default:
-        throw new Error(`Unknown shape: ${kind}`);
+    const normalizedKind = kind.toLowerCase();
+    const factory = SHAPE_BUILDERS.get(normalizedKind);
+    if (!factory) {
+      throw new Error(`${UNKNOWN_SHAPE_PREFIX}${kind}`);
     }
+    return factory();
   }
 }

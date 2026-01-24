@@ -17,6 +17,10 @@ export class DocumentPrototype {
   }
 
   summary() {
-    return `Document{title='${this.title}', paragraphs=${this.paragraphs.length}}`;
+    return buildSummary(this.title, this.paragraphs.length);
   }
+}
+
+function buildSummary(title, paragraphCount) {
+  return `Document{title='${title}', paragraphs=${paragraphCount}}`;
 }

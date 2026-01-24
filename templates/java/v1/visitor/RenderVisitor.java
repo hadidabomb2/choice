@@ -9,11 +9,19 @@ public class RenderVisitor implements NodeVisitor<String> {
     @Override
     public String visitElement(ElementNode element) {
         StringBuilder sb = new StringBuilder();
-        sb.append("<").append(element.getTag()).append(">");
+        String inner = renderChildren(element);
+        return renderElement(element.getTag(), inner);
+    }
+
+    private String renderChildren(ElementNode element) {
+        StringBuilder sb = new StringBuilder();
         for (Node child : element.getChildren()) {
             sb.append(child.accept(this));
         }
-        sb.append("</").append(element.getTag()).append(">");
         return sb.toString();
+    }
+
+    private String renderElement(String tag, String inner) {
+        return "<" + tag + ">" + inner + "</" + tag + ">";
     }
 }

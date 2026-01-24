@@ -3,6 +3,8 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Protocol
 
+LABEL_SEPARATOR = ": "
+
 
 class Formatter(Protocol):
     def format(self, label: str, message: str) -> str:
@@ -12,7 +14,7 @@ class Formatter(Protocol):
 @dataclass(slots=True)
 class TextFormatter:
     def format(self, label: str, message: str) -> str:
-        return f"{label}: {message}"
+        return f"{label}{LABEL_SEPARATOR}{message}"
 
 
 @dataclass(slots=True)

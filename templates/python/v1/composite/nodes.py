@@ -28,4 +28,8 @@ class ElementNode:
 
     def render(self) -> str:
         body = "".join(child.render() for child in self.children)
-        return f"<{self.tag}>{body}</{self.tag}>"
+        return _render_element(self.tag, body)
+
+
+def _render_element(tag: str, body: str) -> str:
+    return f"<{tag}>{body}</{tag}>"

@@ -1,11 +1,12 @@
-const values = new Map();
+const configValues = new Map();
+const EMPTY_DEFAULT = "";
 
 const appConfig = {
   set(key, value) {
-    values.set(key, value);
+    configValues.set(key, value);
   },
-  get(key, defaultValue = "") {
-    return values.has(key) ? values.get(key) : defaultValue;
+  get(key, defaultValue = EMPTY_DEFAULT) {
+    return configValues.has(key) ? configValues.get(key) : defaultValue;
   }
 };
 

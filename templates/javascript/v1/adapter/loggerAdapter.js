@@ -4,6 +4,10 @@ export class LegacyLoggerAdapter {
   }
 
   log(level, message) {
-    this.legacy.write(`[${level}] ${message}`);
+    this.legacy.write(formatMessage(level, message));
   }
+}
+
+function formatMessage(level, message) {
+  return `[${level}] ${message}`;
 }

@@ -20,6 +20,11 @@ export class ElementNode {
   }
 
   render() {
-    return `<${this.tag}>${this.children.map((c) => c.render()).join("")}</${this.tag}>`;
+    const content = this.children.map((child) => child.render()).join("");
+    return renderElement(this.tag, content);
   }
+}
+
+function renderElement(tag, content) {
+  return `<${tag}>${content}</${tag}>`;
 }

@@ -1,3 +1,18 @@
+const NOT_IMPLEMENTED_ERROR = "Not implemented";
+const SUMMARY_PREFIX = "Summary report: ";
+const DETAIL_PREFIX = "Detailed report:";
+const DETAIL_HEADER = "[DETAIL]";
+const BULLET_PREFIX = "- ";
+const LINE_BREAK = "\n";
+
+function normalizeInput(input) {
+  return (input ?? "").trim();
+}
+
+function formatBulletedBody(text) {
+  return `${DETAIL_PREFIX}${LINE_BREAK}${BULLET_PREFIX}${text.split(LINE_BREAK).join(`${LINE_BREAK}${BULLET_PREFIX}`)}`;
+}
+
 export class ReportGenerator {
   generate(input) {
     const normalized = this.normalize(input);
@@ -6,11 +21,11 @@ export class ReportGenerator {
   }
 
   normalize(input) {
-    return (input ?? "").trim();
+    return normalizeInput(input);
   }
 
   buildBody(_normalized) {
-    throw new Error("Not implemented");
+    throw new Error(NOT_IMPLEMENTED_ERROR);
   }
 
   format(body) {
@@ -20,16 +35,16 @@ export class ReportGenerator {
 
 export class SummaryReportGenerator extends ReportGenerator {
   buildBody(normalized) {
-    return `Summary report: ${normalized}`;
+    return `${SUMMARY_PREFIX}${normalized}`;
   }
 }
 
 export class DetailedReportGenerator extends ReportGenerator {
   buildBody(normalized) {
-    return `Detailed report:\n- ${normalized.split("\n").join("\n- ")}`;
+    return formatBulletedBody(normalized);
   }
 
   format(body) {
-    return `[DETAIL]\n${body}`;
+    return `${DETAIL_HEADER}${LINE_BREAK}${body}`;
   }
 }

@@ -13,6 +13,10 @@ public class GreetingFacade {
         Shape shape = ShapeFactory.create(shapeKind);
         String drawing = shape.draw();
 
+        return createResult(greeting, drawing);
+    }
+
+    private FacadeResult createResult(String greeting, String drawing) {
         return new FacadeResult(greeting, drawing);
     }
 }

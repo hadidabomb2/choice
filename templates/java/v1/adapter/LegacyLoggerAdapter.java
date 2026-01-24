@@ -9,6 +9,10 @@ public class LegacyLoggerAdapter implements Logger {
 
     @Override
     public void log(String level, String message) {
-        legacy.write("[" + level + "] " + message);
+        legacy.write(formatMessage(level, message));
+    }
+
+    private String formatMessage(String level, String message) {
+        return "[" + level + "] " + message;
     }
 }

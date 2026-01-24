@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 
+UNKNOWN_SHAPE_PREFIX = "Unknown shape: "
 
 class Shape(ABC):
     @abstractmethod
@@ -20,10 +21,11 @@ class Square(Shape):
 class ShapeFactory:
     @staticmethod
     def create(kind: str) -> Shape:
-        match kind.lower():
+        normalized_kind = kind.lower()
+        match normalized_kind:
             case "circle":
                 return Circle()
             case "square":
                 return Square()
             case _:
-                raise ValueError(f"Unknown shape: {kind}")
+                raise ValueError(f"{UNKNOWN_SHAPE_PREFIX}{kind}")

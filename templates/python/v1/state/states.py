@@ -3,6 +3,11 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Protocol
 
+DRAFT_STATE_NAME = "draft"
+PUBLISHED_STATE_NAME = "published"
+DRAFT_PREFIX = "DRAFT: "
+PUBLISHED_PREFIX = "PUBLISHED: "
+
 
 class State(Protocol):
     def handle(self, input_text: str) -> str:
@@ -15,19 +20,19 @@ class State(Protocol):
 @dataclass(slots=True)
 class DraftState:
     def handle(self, input_text: str) -> str:
-        return f"DRAFT: {input_text}"
+        return _format_draft(input_text)
 
     def name(self) -> str:
-        return "draft"
+        return DRAFT_STATE_NAME
 
 
 @dataclass(slots=True)
 class PublishedState:
     def handle(self, input_text: str) -> str:
-        return f"PUBLISHED: {input_text.upper()}"
+        return _format_published(input_text)
 
     def name(self) -> str:
-        return "published"
+        return PUBLISHED_STATE_NAME
 
 
 @dataclass(slots=True)
@@ -42,3 +47,11 @@ class DocumentContext:
 
     def current_state(self) -> str:
         return self.state.name()
+
+
+def _format_draft(input_text: str) -> str:
+    return f"{DRAFT_PREFIX}{input_text}"
+
+
+def _format_published(input_text: str) -> str:
+    return f"{PUBLISHED_PREFIX}{input_text.upper()}"

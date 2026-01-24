@@ -45,4 +45,8 @@ class RenderVisitor:
 
     def visit_element(self, node: ElementNode) -> str:
         inner = "".join(child.accept(self) for child in node.children)
-        return f"<{node.tag}>{inner}</{node.tag}>"
+        return _render_element(node.tag, inner)
+
+
+def _render_element(tag: str, inner: str) -> str:
+    return f"<{tag}>{inner}</{tag}>"

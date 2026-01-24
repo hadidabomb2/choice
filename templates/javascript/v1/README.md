@@ -30,3 +30,7 @@ Includes:
 
 Run:
 - `node app/index.js`
+
+Style Notes:
+- `app/index.js` keeps each pattern demo in a small, named function.
+- Numeric literals are promoted to named constants for clarity.
