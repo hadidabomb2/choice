@@ -1,17 +1,21 @@
 from abc import ABC, abstractmethod
 
+
 class Shape(ABC):
     @abstractmethod
     def draw(self) -> str:
         raise NotImplementedError
 
+
 class Circle(Shape):
     def draw(self) -> str:
         return "Drawing a Circle"
 
+
 class Square(Shape):
     def draw(self) -> str:
         return "Drawing a Square"
+
 
 class ShapeFactory:
     @staticmethod

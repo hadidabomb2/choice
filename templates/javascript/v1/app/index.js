@@ -1,5 +1,5 @@
-import { profile } from "./perf.js";
-import { ShapeFactory } from "./shapeFactory.js";
+import { profile } from "../decorator/perf.js";
+import { ShapeFactory } from "../factory/shapeFactory.js";
 
 class Greeter {
   hello(name) {

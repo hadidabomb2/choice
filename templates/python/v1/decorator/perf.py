@@ -3,6 +3,7 @@ import tracemalloc
 from functools import wraps
 from typing import Callable, Any, Dict
 
+
 def profile(name: str | None = None) -> Callable[[Callable[..., Any]], Callable[..., Any]]:
     """
     Decorator that measures:
@@ -10,6 +11,7 @@ def profile(name: str | None = None) -> Callable[[Callable[..., Any]], Callable[
     - memory usage delta (KB)
     - number of local variables created
     """
+
     def decorator(func: Callable[..., Any]) -> Callable[..., Any]:
         label = name or func.__name__
 
@@ -38,4 +40,5 @@ def profile(name: str | None = None) -> Callable[[Callable[..., Any]], Callable[
             return result
 
         return wrapper
+
     return decorator

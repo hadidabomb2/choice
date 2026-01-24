@@ -1,3 +1,10 @@
+package app;
+
+import decorator.Perf;
+import decorator.PerfTracker;
+import factory.Shape;
+import factory.ShapeFactory;
+
 import java.lang.reflect.Method;
 
 public class Main {

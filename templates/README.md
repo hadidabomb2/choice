@@ -25,7 +25,7 @@ templates/javascript/v1/
 Each template folder must include:
 
 - `template.json` — metadata
-- entry files (e.g. `main.py`, `Main.java`, `index.js`)
+- entry files (e.g. `app/main.py`, `app/Main.java`, `app/index.js`)
 - optional `README.md` for usage notes
 
 ---
@@ -36,8 +36,8 @@ Each template folder must include:
 {
   "name": "python",
   "version": "v1",
-  "description": "Python Hello World template",
-  "entry": "main.py",
+  "description": "Python Decorator + Factory template",
+  "entry": "app/main.py",
   "tools": []
 }
 ```
@@ -66,7 +66,7 @@ Example:
     "versions": ["v1"],
     "runtime": "python",
     "runtimeVersion": "3.13",
-    "description": "Python Hello World template"
+    "description": "Python Decorator + Factory template"
   }
 }
 ```

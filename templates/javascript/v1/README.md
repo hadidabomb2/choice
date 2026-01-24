@@ -1,7 +1,11 @@
 # JavaScript Template Notes
 
-Includes:
-- `perf.js` — wrapper to measure time, memory, and locals created
-- `index.js` — example usage
+This template demonstrates the decorator (function wrapper) and factory patterns using only Node.js built-ins.
 
-Extensible to any function or class method.
+Includes:
+- `decorator/perf.js` — wrapper to measure time, memory, and locals created
+- `factory/shapeFactory.js` — factory example
+- `app/index.js` — example usage
+
+Run:
+- `node app/index.js`

@@ -1,7 +1,7 @@
 {
   "name": "python",
   "version": "v1",
-  "description": "Python Hello World template",
-  "entry": "main.py",
+  "description": "Python Decorator + Factory template",
+  "entry": "app/main.py",
   "tools": []
 }

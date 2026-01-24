@@ -1,7 +1,7 @@
 {
   "name": "javascript",
   "version": "v1",
-  "description": "JavaScript Hello World template",
-  "entry": "index.js",
+  "description": "JavaScript Decorator + Factory template",
+  "entry": "app/index.js",
   "tools": []
 }

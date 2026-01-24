@@ -1,3 +1,5 @@
+package factory;
+
 public class ShapeFactory {
     public static Shape create(String kind) {
         return switch (kind.toLowerCase()) {

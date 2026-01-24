@@ -1,3 +1,5 @@
+package decorator;
+
 import java.lang.annotation.*;
 
 @Retention(RetentionPolicy.RUNTIME)

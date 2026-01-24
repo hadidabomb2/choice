@@ -13,9 +13,9 @@ type InitOptions = {
 };
 
 const nextStepsByLang: Record<string, string[]> = {
-  python: ["python main.py"],
-  java: ["javac Main.java", "java Main"],
-  javascript: ["node index.js"]
+  python: ["python app/main.py"],
+  java: ["javac app/Main.java decorator/*.java factory/*.java", "java app.Main"],
+  javascript: ["node app/index.js"]
 };
 
 export function registerInitCommand(program: Command) {
@@ -58,7 +58,7 @@ export function registerInitCommand(program: Command) {
         }
       });
 
-      console.log(`✅ Installed ${lang} template (${version}) at ${targetDir}`);
+      console.log(`Installed ${lang} template (${version}) at ${targetDir}`);
 
       const steps = nextStepsByLang[lang];
       if (steps?.length) {
