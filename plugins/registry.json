@@ -1,0 +1,10 @@
+{
+  "plugins": [
+    {
+      "name": "choice-templates-basic",
+      "version": "1.0.0",
+      "description": "Starter templates for Python, Java, and JavaScript.",
+      "url": "https://example.com/plugins/choice-templates-basic"
+    }
+  ]
+}

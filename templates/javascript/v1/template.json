@@ -1,0 +1,7 @@
+{
+  "name": "javascript",
+  "version": "v1",
+  "description": "JavaScript Hello World template",
+  "entry": "index.js",
+  "tools": []
+}

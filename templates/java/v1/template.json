@@ -1,0 +1,7 @@
+{
+  "name": "java",
+  "version": "v1",
+  "description": "Java Hello World template",
+  "entry": "Main.java",
+  "tools": []
+}

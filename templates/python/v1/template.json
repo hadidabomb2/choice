@@ -1,0 +1,7 @@
+{
+  "name": "python",
+  "version": "v1",
+  "description": "Python Hello World template",
+  "entry": "main.py",
+  "tools": []
+}

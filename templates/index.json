@@ -1,0 +1,23 @@
+{
+  "python": {
+    "latest": "v1",
+    "versions": ["v1"],
+    "runtime": "python",
+    "runtimeVersion": "3.13",
+    "description": "Python Hello World template"
+  },
+  "java": {
+    "latest": "v1",
+    "versions": ["v1"],
+    "runtime": "java",
+    "runtimeVersion": "21",
+    "description": "Java Hello World template"
+  },
+  "javascript": {
+    "latest": "v1",
+    "versions": ["v1"],
+    "runtime": "node",
+    "runtimeVersion": "25",
+    "description": "JavaScript Hello World template"
+  }
+}

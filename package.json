@@ -1,0 +1,38 @@
+{
+  "name": "choice",
+  "version": "0.1.0",
+  "description": "Multi-language template installer CLI",
+  "type": "module",
+  "bin": {
+    "choice": "dist/cli.js"
+  },
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "templates",
+    "docs",
+    "plugins"
+  ],
+  "engines": {
+    "node": ">=25.0.0"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsx src/cli.ts",
+    "list": "tsx src/cli.ts list",
+    "init": "tsx src/cli.ts init",
+    "plugins": "tsx src/cli.ts plugins",
+    "test": "tsx --test src/tests/**/*.test.ts",
+    "prepare": "npm run build"
+  },
+  "dependencies": {
+    "commander": "14.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "25.0.10",
+    "tsx": "4.21.0",
+    "typescript": "5.9.3"
+  }
+}
