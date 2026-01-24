@@ -14,7 +14,7 @@ type InitOptions = {
 
 const nextStepsByLang: Record<string, string[]> = {
   python: ["python app/main.py"],
-  java: ["javac app/Main.java decorator/*.java factory/*.java", "java app.Main"],
+  java: ["javac app/Main.java decorator/*.java factory/*.java factorymethod/*.java abstractfactory/*.java strategy/*.java facade/*.java flyweight/*.java proxy/*.java composite/*.java bridge/*.java adapter/*.java builder/*.java prototype/*.java singleton/*.java chain/*.java command/*.java iterator/*.java mediator/*.java memento/*.java observer/*.java state/*.java templatemethod/*.java visitor/*.java", "java app.Main"],
   javascript: ["node app/index.js"]
 };
 

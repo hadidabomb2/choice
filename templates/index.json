@@ -4,20 +4,20 @@
     "versions": ["v1"],
     "runtime": "python",
     "runtimeVersion": "3.13",
-    "description": "Python Decorator + Factory template"
+    "description": "Python Decorator + Simple Factory + Factory Method + Abstract Factory + Strategy + Facade + Flyweight + Proxy + Composite + Bridge + Adapter + Builder + Prototype + Singleton + Chain of Responsibility + Command + Iterator + Mediator + Memento + Observer + State + Template Method + Visitor template"
   },
   "java": {
     "latest": "v1",
     "versions": ["v1"],
     "runtime": "java",
     "runtimeVersion": "21",
-    "description": "Java Decorator + Factory template"
+    "description": "Java Decorator + Simple Factory + Factory Method + Abstract Factory + Strategy + Facade + Flyweight + Proxy + Composite + Bridge + Adapter + Builder + Prototype + Singleton + Chain of Responsibility + Command + Iterator + Mediator + Memento + Observer + State + Template Method + Visitor template"
   },
   "javascript": {
     "latest": "v1",
     "versions": ["v1"],
     "runtime": "node",
     "runtimeVersion": "25",
-    "description": "JavaScript Decorator + Factory template"
+    "description": "JavaScript Decorator + Simple Factory + Factory Method + Abstract Factory + Strategy + Facade + Flyweight + Proxy + Composite + Bridge + Adapter + Builder + Prototype + Singleton + Chain of Responsibility + Command + Iterator + Mediator + Memento + Observer + State + Template Method + Visitor template"
   }
 }

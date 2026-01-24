@@ -36,7 +36,7 @@ Each template folder must include:
 {
   "name": "python",
   "version": "v1",
-  "description": "Python Decorator + Factory template",
+  "description": "Python Decorator + Simple Factory + Factory Method + Abstract Factory + Strategy + Facade + Flyweight + Proxy + Composite + Bridge + Adapter + Builder + Prototype + Singleton + Chain of Responsibility + Command + Iterator + Mediator + Memento + Observer + State + Template Method + Visitor template",
   "entry": "app/main.py",
   "tools": []
 }
@@ -66,7 +66,7 @@ Example:
     "versions": ["v1"],
     "runtime": "python",
     "runtimeVersion": "3.13",
-    "description": "Python Decorator + Factory template"
+    "description": "Python Decorator + Simple Factory + Factory Method + Abstract Factory template"
   }
 }
 ```
