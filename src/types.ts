@@ -7,3 +7,14 @@ export type TemplateInfo = {
 };
 
 export type TemplateIndex = Record<string, TemplateInfo>;
+
+export interface Plugin {
+  name: string;
+  version: string;
+  description: string;
+  url: string;
+}
+
+export interface PluginRegistry {
+  plugins: Plugin[];
+}

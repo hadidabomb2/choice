@@ -8,7 +8,6 @@ public class RenderVisitor implements NodeVisitor<String> {
 
     @Override
     public String visitElement(ElementNode element) {
-        StringBuilder sb = new StringBuilder();
         String inner = renderChildren(element);
         return renderElement(element.getTag(), inner);
     }
