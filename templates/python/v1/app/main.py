@@ -1,28 +1,28 @@
-from decorator.perf import profile
-from factory.shape_factory import ShapeFactory
-from facade.greeting_facade import GreetingFacade
-from flyweight.text_style_factory import TextStyleFactory, StyledText
-from composite.nodes import ElementNode as CompositeElementNode, TextNode as CompositeTextNode
-from proxy.timed_proxy import TimedProxy
-from bridge.formatters import JsonFormatter, TextFormatter
-from bridge.notifiers import EmailNotifier, SmsNotifier
-from adapter.legacy_logger import LegacyLogger
-from adapter.logger_adapter import LegacyLoggerAdapter
-from builder.http_request_builder import HttpRequestBuilder
-from prototype.document_prototype import DocumentPrototype
-from singleton.app_config import AppConfig
-from chain.handlers import ValidationHandler, AuthHandler, BusinessHandler, Request
-from command.commands import TextBuffer, AppendTextCommand, CommandInvoker
-from iterator.collection import ItemCollection, Item
-from mediator.chat_mediator import ChatMediator, UserParticipant
-from memento.text_editor import TextEditor
-from observer.event_bus import EventBus, LoggingObserver
-from state.states import DocumentContext, DraftState, PublishedState
-from templatemethod.report_generators import SummaryReportGenerator, DetailedReportGenerator
-from visitor.nodes import ElementNode as VisitorElementNode, TextNode as VisitorTextNode, RenderVisitor
-from factorymethod.notifications import EmailNotificationCreator, SmsNotificationCreator
-from abstractfactory.ui_factory import LightUiFactory, DarkUiFactory
-from strategy.greeter_strategies import (
+from designtemplates.decorator.perf import profile
+from designtemplates.factory.shape_factory import ShapeFactory
+from designtemplates.facade.greeting_facade import GreetingFacade
+from designtemplates.flyweight.text_style_factory import TextStyleFactory, StyledText
+from designtemplates.composite.nodes import ElementNode as CompositeElementNode, TextNode as CompositeTextNode
+from designtemplates.proxy.timed_proxy import TimedProxy
+from designtemplates.bridge.formatters import JsonFormatter, TextFormatter
+from designtemplates.bridge.notifiers import EmailNotifier, SmsNotifier
+from designtemplates.adapter.legacy_logger import LegacyLogger
+from designtemplates.adapter.logger_adapter import LegacyLoggerAdapter
+from designtemplates.builder.http_request_builder import HttpRequestBuilder
+from designtemplates.prototype.document_prototype import DocumentPrototype
+from designtemplates.singleton.app_config import AppConfig
+from designtemplates.chain.handlers import ValidationHandler, AuthHandler, BusinessHandler, Request
+from designtemplates.command.commands import TextBuffer, AppendTextCommand, CommandInvoker
+from designtemplates.iterator.collection import ItemCollection, Item
+from designtemplates.mediator.chat_mediator import ChatMediator, UserParticipant
+from designtemplates.memento.text_editor import TextEditor
+from designtemplates.observer.event_bus import EventBus, LoggingObserver
+from designtemplates.state.states import DocumentContext, DraftState, PublishedState
+from designtemplates.templatemethod.report_generators import SummaryReportGenerator, DetailedReportGenerator
+from designtemplates.visitor.nodes import ElementNode as VisitorElementNode, TextNode as VisitorTextNode, RenderVisitor
+from designtemplates.factorymethod.notifications import EmailNotificationCreator, SmsNotificationCreator
+from designtemplates.abstractfactory.ui_factory import LightUiFactory, DarkUiFactory
+from designtemplates.strategy.greeter_strategies import (
     FriendlyStrategy,
     FormalStrategy,
     UppercaseStrategy,

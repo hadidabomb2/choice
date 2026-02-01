@@ -1,59 +1,59 @@
 package app;
 
-import decorator.Perf;
-import decorator.PerfTracker;
-import factory.Shape;
-import factory.ShapeFactory;
-import facade.FacadeResult;
-import facade.GreetingFacade;
-import flyweight.StyledText;
-import flyweight.TextStyle;
-import flyweight.TextStyleFactory;
-import composite.ElementNode;
-import composite.TextNode;
-import bridge.EmailNotifier;
-import bridge.JsonFormatter;
-import bridge.SmsNotifier;
-import bridge.TextFormatter;
-import adapter.LegacyLogger;
-import adapter.LegacyLoggerAdapter;
-import adapter.Logger;
-import builder.HttpRequest;
-import prototype.Document;
-import singleton.AppConfig;
-import chain.AuthHandler;
-import chain.BusinessHandler;
-import chain.Request;
-import chain.ValidationHandler;
-import command.AppendTextCommand;
-import command.CommandInvoker;
-import command.TextBuffer;
-import iterator.Item;
-import iterator.ItemCollection;
-import mediator.ChatRoomMediator;
-import mediator.UserParticipant;
-import memento.TextEditor;
-import memento.TextSnapshot;
-import observer.EventBus;
-import observer.LoggingObserver;
-import state.DocumentContext;
-import state.DraftState;
-import state.PublishedState;
-import templatemethod.DetailedReportGenerator;
-import templatemethod.SummaryReportGenerator;
-import visitor.RenderVisitor;
-import factorymethod.EmailNotificationCreator;
-import factorymethod.SmsNotificationCreator;
-import abstractfactory.DarkUiFactory;
-import abstractfactory.LightUiFactory;
-import abstractfactory.UiFactory;
-import proxy.GreeterProxyFactory;
-import proxy.GreeterService;
-import proxy.GreeterServiceImpl;
-import strategy.FormalStrategy;
-import strategy.FriendlyStrategy;
-import strategy.GreeterContext;
-import strategy.UppercaseStrategy;
+import designtemplates.decorator.Perf;
+import designtemplates.decorator.PerfTracker;
+import designtemplates.factory.Shape;
+import designtemplates.factory.ShapeFactory;
+import designtemplates.facade.FacadeResult;
+import designtemplates.facade.GreetingFacade;
+import designtemplates.flyweight.StyledText;
+import designtemplates.flyweight.TextStyle;
+import designtemplates.flyweight.TextStyleFactory;
+import designtemplates.composite.ElementNode;
+import designtemplates.composite.TextNode;
+import designtemplates.bridge.EmailNotifier;
+import designtemplates.bridge.JsonFormatter;
+import designtemplates.bridge.SmsNotifier;
+import designtemplates.bridge.TextFormatter;
+import designtemplates.adapter.LegacyLogger;
+import designtemplates.adapter.LegacyLoggerAdapter;
+import designtemplates.adapter.Logger;
+import designtemplates.builder.HttpRequest;
+import designtemplates.prototype.Document;
+import designtemplates.singleton.AppConfig;
+import designtemplates.chain.AuthHandler;
+import designtemplates.chain.BusinessHandler;
+import designtemplates.chain.Request;
+import designtemplates.chain.ValidationHandler;
+import designtemplates.command.AppendTextCommand;
+import designtemplates.command.CommandInvoker;
+import designtemplates.command.TextBuffer;
+import designtemplates.iterator.Item;
+import designtemplates.iterator.ItemCollection;
+import designtemplates.mediator.ChatRoomMediator;
+import designtemplates.mediator.UserParticipant;
+import designtemplates.memento.TextEditor;
+import designtemplates.memento.TextSnapshot;
+import designtemplates.observer.EventBus;
+import designtemplates.observer.LoggingObserver;
+import designtemplates.state.DocumentContext;
+import designtemplates.state.DraftState;
+import designtemplates.state.PublishedState;
+import designtemplates.templatemethod.DetailedReportGenerator;
+import designtemplates.templatemethod.SummaryReportGenerator;
+import designtemplates.visitor.RenderVisitor;
+import designtemplates.factorymethod.EmailNotificationCreator;
+import designtemplates.factorymethod.SmsNotificationCreator;
+import designtemplates.abstractfactory.DarkUiFactory;
+import designtemplates.abstractfactory.LightUiFactory;
+import designtemplates.abstractfactory.UiFactory;
+import designtemplates.proxy.GreeterProxyFactory;
+import designtemplates.proxy.GreeterService;
+import designtemplates.proxy.GreeterServiceImpl;
+import designtemplates.strategy.FormalStrategy;
+import designtemplates.strategy.FriendlyStrategy;
+import designtemplates.strategy.GreeterContext;
+import designtemplates.strategy.UppercaseStrategy;
 
 import java.lang.reflect.Method;
 
@@ -301,9 +301,9 @@ public class Main {
     }
 
     private static void runVisitorExample() {
-        visitor.ElementNode visitorRoot = new visitor.ElementNode("div")
-            .add(new visitor.TextNode("Visitor root: "))
-            .add(new visitor.ElementNode("span").add(new visitor.TextNode("child")));
+        designtemplates.visitor.ElementNode visitorRoot = new designtemplates.visitor.ElementNode("div")
+            .add(new designtemplates.visitor.TextNode("Visitor root: "))
+            .add(new designtemplates.visitor.ElementNode("span").add(new designtemplates.visitor.TextNode("child")));
         RenderVisitor renderer = new RenderVisitor();
         System.out.println(visitorRoot.accept(renderer));
     }
