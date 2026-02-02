@@ -1,7 +1,7 @@
 {
   "name": "python",
   "version": "v1",
-  "description": "Python Decorator + Simple Factory + Factory Method + Abstract Factory + Strategy + Facade + Flyweight + Proxy + Composite + Bridge + Adapter + Builder + Prototype + Singleton + Chain of Responsibility + Command + Iterator + Mediator + Memento + Observer + State + Template Method + Visitor template",
-  "entry": "app/main.py",
+  "description": "Design templates package with 23 GoF patterns and real-world case studies",
+  "entry": "designtemplates/main.py",
   "tools": []
 }

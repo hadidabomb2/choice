@@ -1,36 +1,28 @@
-# JavaScript Template Notes
+# JavaScript Design Templates
 
-This template demonstrates the decorator (function wrapper), simple factory, factory method, abstract factory, strategy, facade, flyweight, proxy, composite, bridge, adapter, builder, prototype, singleton, chain of responsibility, command, iterator, mediator, memento, observer, state, template method, and visitor patterns using only Node.js built-ins.
+This template package includes a comprehensive collection of 23 Gang of Four design patterns plus real-world case studies, all implemented in Node.js using only built-in features.
 
-Includes:
-- `decorator/perf.js` — wrapper to measure time, memory, and locals created
-- `factory/shapeFactory.js` — simple factory example
-- `factorymethod/notifications.js` — factory method example
-- `abstractfactory/uiFactory.js` — abstract factory example
-- `strategy/greeterStrategies.js` — strategy example
-- `facade/greetingFacade.js` — facade example
-- `flyweight/textStyleFactory.js` — flyweight example
-- `proxy/timedProxy.js` — proxy example
-- `composite/nodes.js` — composite example
-- `bridge/formatters.js`, `bridge/notifiers.js` — bridge example
-- `adapter/legacyLogger.js`, `adapter/loggerAdapter.js` — adapter example
-- `builder/httpRequestBuilder.js` — builder example
-- `prototype/documentPrototype.js` — prototype example
-- `singleton/appConfig.js` — singleton example
-- `chain/handlers.js` — chain of responsibility example
-- `command/commands.js` — command example
-- `iterator/collection.js` — iterator example
-- `mediator/chatMediator.js` — mediator example
-- `memento/textEditor.js` — memento example
-- `observer/eventBus.js` — observer example
-- `state/states.js` — state example
-- `templatemethod/reportGenerators.js` — template method example
-- `visitor/nodes.js` — visitor example
-- `app/index.js` — example usage
+## What's Included
 
-Run:
-- `node app/index.js`
+- **Design Patterns**: Comprehensive examples of all 23 classic GoF patterns (Creational, Structural, and Behavioral)
+- **Case Studies**: Real-world applications including rate limiting, real-time stock tracking, payment processing, and notification services
+- **Entry Point**: `designtemplates/main.js` — runnable demo of all patterns
+- **No Dependencies**: Uses only Node.js built-ins
 
-Style Notes:
-- `app/index.js` keeps each pattern demo in a small, named function.
-- Numeric literals are promoted to named constants for clarity.
+## Quick Start
+
+```bash
+node designtemplates/main.js
+```
+
+## Structure
+
+- `designtemplates/` — All patterns organized by type
+- `designtemplates/main.js` — Main entry point with demonstrations
+- Pattern files contain concrete implementations
+
+## Style Notes
+
+- Each pattern demo is kept small and focused with descriptive function names
+- Named constants replace numeric literals for clarity
+- Pure JavaScript with no external frameworks

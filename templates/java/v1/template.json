@@ -1,7 +1,7 @@
 {
   "name": "java",
   "version": "v1",
-  "description": "Java Decorator + Simple Factory + Factory Method + Abstract Factory + Strategy + Facade + Flyweight + Proxy + Composite + Bridge + Adapter + Builder + Prototype + Singleton + Chain of Responsibility + Command + Iterator + Mediator + Memento + Observer + State + Template Method + Visitor template",
-  "entry": "app/Main.java",
+  "description": "Design templates package with 23 GoF patterns and real-world case studies",
+  "entry": "designtemplates/Main.java",
   "tools": []
 }

@@ -1,4 +1,4 @@
-package app;
+package designtemplates;
 
 import designtemplates.decorator.Perf;
 import designtemplates.decorator.PerfTracker;

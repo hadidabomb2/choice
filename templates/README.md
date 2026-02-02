@@ -25,15 +25,28 @@ templates/javascript/v1/
 Each template folder must include:
 
 - `template.json` — metadata
-- entry files (e.g. `app/main.py`, `app/Main.java`, `app/index.js`)
-- optional `README.md` for usage notes
+- `designtemplates/main.py`, `designtemplates/Main.java`, or `designtemplates/main.js` — entry file
+- `README.md` — usage documentation
+- Design template package organized under `designtemplates/`
+
+---
+
+## What is a Design Template?
+
+A design template package includes:
+- **23 Gang of Four patterns**: All classic creational, structural, and behavioral patterns
+- **Real-world case studies**: Practical applications demonstrating pattern usage
+- **Language-native implementation**: Using only standard library features
+- **Single entry point**: Main file demonstrating all patterns
 
 ---
 
 ## Style Guidelines
 
-- Keep entry files focused with small, named example functions.
-- Replace numeric literals in examples with named constants.
+- Keep entry files focused with small, named example functions
+- Replace numeric literals with named constants
+- Organize patterns in subdirectories by category
+- Document each pattern with clear, concise comments
 
 ---
 
@@ -43,11 +56,22 @@ Each template folder must include:
 {
   "name": "python",
   "version": "v1",
-  "description": "Python Decorator + Simple Factory + Factory Method + Abstract Factory + Strategy + Facade + Flyweight + Proxy + Composite + Bridge + Adapter + Builder + Prototype + Singleton + Chain of Responsibility + Command + Iterator + Mediator + Memento + Observer + State + Template Method + Visitor template",
-  "entry": "app/main.py",
+  "description": "Design templates package with 23 GoF patterns and real-world case studies",
+  "entry": "designtemplates/main.py",
   "tools": []
 }
 ```
+
+---
+
+## Available Templates
+
+| Language | Version | Status |
+|----------|---------|--------|
+| Java | v1 | ✓ Complete |
+| JavaScript | v1 | ✓ Complete |
+| Python | v1 | ✓ Complete |
+
 
 ### Notes
 - The `tools` array is currently **metadata only**.

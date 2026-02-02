@@ -1,58 +1,58 @@
-import { profile } from "../designtemplates/decorator/perf.js";
-import { ShapeFactory } from "../designtemplates/factory/shapeFactory.js";
-import { GreetingFacade } from "../designtemplates/facade/greetingFacade.js";
+import { profile } from "./decorator/perf.js";
+import { ShapeFactory } from "./factory/shapeFactory.js";
+import { GreetingFacade } from "./facade/greetingFacade.js";
 import {
   getTextStyle,
   StyledText,
   cacheSize
-} from "../designtemplates/flyweight/textStyleFactory.js";
-import { createTimedProxy } from "../designtemplates/proxy/timedProxy.js";
+} from "./flyweight/textStyleFactory.js";
+import { createTimedProxy } from "./proxy/timedProxy.js";
 import {
   ElementNode as CompositeElementNode,
   TextNode as CompositeTextNode
-} from "../designtemplates/composite/nodes.js";
-import { textFormatter, jsonFormatter } from "../designtemplates/bridge/formatters.js";
-import { EmailNotifier, SmsNotifier } from "../designtemplates/bridge/notifiers.js";
-import { LegacyLogger } from "../designtemplates/adapter/legacyLogger.js";
-import { LegacyLoggerAdapter } from "../designtemplates/adapter/loggerAdapter.js";
-import { HttpRequestBuilder } from "../designtemplates/builder/httpRequestBuilder.js";
-import { DocumentPrototype } from "../designtemplates/prototype/documentPrototype.js";
-import { appConfig } from "../designtemplates/singleton/appConfig.js";
+} from "./composite/nodes.js";
+import { textFormatter, jsonFormatter } from "./bridge/formatters.js";
+import { EmailNotifier, SmsNotifier } from "./bridge/notifiers.js";
+import { LegacyLogger } from "./adapter/legacyLogger.js";
+import { LegacyLoggerAdapter } from "./adapter/loggerAdapter.js";
+import { HttpRequestBuilder } from "./builder/httpRequestBuilder.js";
+import { DocumentPrototype } from "./prototype/documentPrototype.js";
+import { appConfig } from "./singleton/appConfig.js";
 import {
   ValidationHandler,
   AuthHandler,
   BusinessHandler
-} from "../designtemplates/chain/handlers.js";
+} from "./chain/handlers.js";
 import {
   TextBuffer,
   AppendTextCommand,
   CommandInvoker
-} from "../designtemplates/command/commands.js";
-import { ItemCollection } from "../designtemplates/iterator/collection.js";
-import { ChatMediator, UserParticipant } from "../designtemplates/mediator/chatMediator.js";
-import { TextEditor } from "../designtemplates/memento/textEditor.js";
-import { EventBus, LoggingObserver } from "../designtemplates/observer/eventBus.js";
-import { DocumentContext, draftState, publishedState } from "../designtemplates/state/states.js";
+} from "./command/commands.js";
+import { ItemCollection } from "./iterator/collection.js";
+import { ChatMediator, UserParticipant } from "./mediator/chatMediator.js";
+import { TextEditor } from "./memento/textEditor.js";
+import { EventBus, LoggingObserver } from "./observer/eventBus.js";
+import { DocumentContext, draftState, publishedState } from "./state/states.js";
 import {
   SummaryReportGenerator,
   DetailedReportGenerator
-} from "../designtemplates/templatemethod/reportGenerators.js";
+} from "./templatemethod/reportGenerators.js";
 import {
   ElementNode as VisitorElementNode,
   TextNode as VisitorTextNode,
   RenderVisitor
-} from "../designtemplates/visitor/nodes.js";
+} from "./visitor/nodes.js";
 import {
   EmailNotificationCreator,
   SmsNotificationCreator
-} from "../designtemplates/factorymethod/notifications.js";
-import { LightUiFactory, DarkUiFactory } from "../designtemplates/abstractfactory/uiFactory.js";
+} from "./factorymethod/notifications.js";
+import { LightUiFactory, DarkUiFactory } from "./abstractfactory/uiFactory.js";
 import {
   friendlyStrategy,
   formalStrategy,
   uppercaseStrategy,
   GreeterContext
-} from "../designtemplates/strategy/greeterStrategies.js";
+} from "./strategy/greeterStrategies.js";
 
 const PROJECT_NAME = "{{projectName}}";
 const SHAPE_CIRCLE = "circle";
