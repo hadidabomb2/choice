@@ -4,20 +4,20 @@
     "versions": ["v1"],
     "runtime": "python",
     "runtimeVersion": "3.13",
-    "description": "Python Decorator + Simple Factory + Factory Method + Abstract Factory + Strategy + Facade + Flyweight + Proxy + Composite + Bridge + Adapter + Builder + Prototype + Singleton + Chain of Responsibility + Command + Iterator + Mediator + Memento + Observer + State + Template Method + Visitor template"
+    "description": "Design templates package with 23 GoF patterns and real-world case studies"
   },
   "java": {
     "latest": "v1",
     "versions": ["v1"],
     "runtime": "java",
     "runtimeVersion": "21",
-    "description": "Java Decorator + Simple Factory + Factory Method + Abstract Factory + Strategy + Facade + Flyweight + Proxy + Composite + Bridge + Adapter + Builder + Prototype + Singleton + Chain of Responsibility + Command + Iterator + Mediator + Memento + Observer + State + Template Method + Visitor template"
+    "description": "Design templates package with 23 GoF patterns and real-world case studies"
   },
   "javascript": {
     "latest": "v1",
     "versions": ["v1"],
     "runtime": "node",
     "runtimeVersion": "25",
-    "description": "JavaScript Decorator + Simple Factory + Factory Method + Abstract Factory + Strategy + Facade + Flyweight + Proxy + Composite + Bridge + Adapter + Builder + Prototype + Singleton + Chain of Responsibility + Command + Iterator + Mediator + Memento + Observer + State + Template Method + Visitor template"
+    "description": "Design templates package with 23 GoF patterns and real-world case studies"
   }
 }

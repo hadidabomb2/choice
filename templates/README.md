@@ -25,9 +25,10 @@ templates/javascript/v1/
 Each template folder must include:
 
 - `template.json` — metadata
-- `designtemplates/main.py`, `designtemplates/Main.java`, or `designtemplates/main.js` — entry file
+- `designtemplates/main.py`, `designtemplates/Main.java`, or `designtemplates/main.js` — patterns entry file
 - `README.md` — usage documentation
 - Design template package organized under `designtemplates/`
+- Optional: `financecasestudies/Main.java` for Java (real-world applications)
 
 ---
 
@@ -35,9 +36,9 @@ Each template folder must include:
 
 A design template package includes:
 - **23 Gang of Four patterns**: All classic creational, structural, and behavioral patterns
-- **Real-world case studies**: Practical applications demonstrating pattern usage
+- **Real-world case studies**: Practical applications demonstrating pattern usage (Java only)
 - **Language-native implementation**: Using only standard library features
-- **Single entry point**: Main file demonstrating all patterns
+- **Dual entry points**: Patterns demo + optional case studies application
 
 ---
 
@@ -47,37 +48,47 @@ A design template package includes:
 - Replace numeric literals with named constants
 - Organize patterns in subdirectories by category
 - Document each pattern with clear, concise comments
+- For case studies, demonstrate practical pattern combinations
 
 ---
 
-## template.json (example)
+## template.json Structure
 
 ```json
 {
-  "name": "python",
+  "name": "java",
   "version": "v1",
   "description": "Design templates package with 23 GoF patterns and real-world case studies",
-  "entry": "designtemplates/main.py",
+  "patterns": "designtemplates/Main.java",
+  "casestudies": "financecasestudies/Main.java",
   "tools": []
 }
 ```
+
+**Keys:**
+- `name` — Language identifier
+- `version` — Template version
+- `description` — Package overview
+- `patterns` — Entry point for design patterns demo
+- `casestudies` — Entry point for real-world applications (Java only)
+- `tools` — Reserved for future tooling
 
 ---
 
 ## Available Templates
 
-| Language | Version | Status |
-|----------|---------|--------|
-| Java | v1 | ✓ Complete |
-| JavaScript | v1 | ✓ Complete |
-| Python | v1 | ✓ Complete |
+| Language | Version | Status | Patterns | Case Studies |
+|----------|---------|--------|----------|---------------|
+| Java | v1 | ✓ Complete | ✓ | ✓ |
+| JavaScript | v1 | ✓ Complete | ✓ | — |
+| Python | v1 | ✓ Complete | ✓ | — |
 
+---
 
 ### Notes
 - The `tools` array is currently **metadata only**.
-- Future versions may use `tools` for automatic setup or validation.
-
----
+- Case studies currently available for Java only (financecasestudies/).
+- Future versions may expand case studies to other languages.
 
 ## templates/index.json
 

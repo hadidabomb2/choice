@@ -2,6 +2,7 @@
   "name": "java",
   "version": "v1",
   "description": "Design templates package with 23 GoF patterns and real-world case studies",
-  "entry": "designtemplates/Main.java",
+  "patterns": "designtemplates/Main.java",
+  "casestudies": "financecasestudies/Main.java",
   "tools": []
 }

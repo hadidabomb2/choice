@@ -14,7 +14,7 @@ type InitOptions = {
 
 const nextStepsByLang: Record<string, string[]> = {
   python: ["python designtemplates/main.py"],
-  java: ["javac designtemplates/*.java designtemplates/*/*.java designtemplates/casestudies/*.java", "java designtemplates.Main"],
+  java: ["javac designtemplates/*.java designtemplates/*/*.java financecasestudies/*.java financecasestudies/*/*.java", "java designtemplates.Main", "java financecasestudies.Main"],
   javascript: ["node designtemplates/main.js"]
 };
 
