@@ -1,41 +1,44 @@
 package financecasestudies.ratelimiter;
 
-public class TokenBucket implements RateLimiter {
-    private final double capacity;
-    private final double refillRatePerSecond;
-    private double tokens;
-    private long lastRefillMillis;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
-    public TokenBucket(double capacity, double refillRatePerSecond) {
-        if (capacity <= 0) {
-            throw new IllegalArgumentException("capacity must be positive");
-        }
-        if (refillRatePerSecond <= 0) {
-            throw new IllegalArgumentException("refillRatePerSecond must be positive");
-        }
+public class TokenBucket implements RateLimiter {
+    private final int capacity;
+    private final long refillIntervalMs;
+    private int tokens;
+    private long lastRefillTime;
+    private final Lock lock = new ReentrantLock();
+
+    public TokenBucket(int capacity, long refillIntervalMs) {
         this.capacity = capacity;
-        this.refillRatePerSecond = refillRatePerSecond;
+        this.refillIntervalMs = refillIntervalMs;
         this.tokens = capacity;
-        this.lastRefillMillis = System.currentTimeMillis();
+        this.lastRefillTime = System.currentTimeMillis();
     }
 
     @Override
-    public synchronized boolean tryAcquire() {
-        refill();
-        if (tokens < 1.0) {
+    public boolean tryAcquire() {
+        lock.lock();
+        try {
+            refill();
+            if (tokens > 0) {
+                tokens--;
+                return true;
+            }
             return false;
+        } finally {
+            lock.unlock();
         }
-        tokens -= 1.0;
-        return true;
     }
 
     private void refill() {
         long now = System.currentTimeMillis();
-        double elapsedSeconds = (now - lastRefillMillis) / 1000.0;
-        double refillTokens = elapsedSeconds * refillRatePerSecond;
-        if (refillTokens > 0) {
-            tokens = Math.min(capacity, tokens + refillTokens);
-            lastRefillMillis = now;
+        long elapsed = now - lastRefillTime;
+        long tokensToAdd = (int) (elapsed / refillIntervalMs);
+        if (tokensToAdd > 0) {
+            tokens = Math.min(capacity, (int)(tokens + tokensToAdd));
+            lastRefillTime = now;
         }
     }
 }

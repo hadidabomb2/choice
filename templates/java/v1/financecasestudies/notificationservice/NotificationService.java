@@ -27,6 +27,7 @@ public class NotificationService implements MessageHandler {
     public void handle(NotificationMessage message) {
         Objects.requireNonNull(message, "message");
         if (!rateLimiter.tryAcquire()) {
+            queue.publish(message);
             return;
         }
 

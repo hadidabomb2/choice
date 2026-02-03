@@ -35,18 +35,25 @@ import financecasestudies.realtimestock.WebSocketPriceFeed;
 
 /**
  * Integrated Finance Application demonstrating all finance case studies:
- * - Real-time Stock Tracking: Monitor portfolio values and price updates
+ * - Real-time Stock Tracking: Monitor portfolio values and price updates via WebSocket
  * - Payment Processing: Transfer funds between accounts with idempotency
  * - Rate Limiting: Control API/notification throughput using token bucket
  * - Notification Service: Send alerts via multiple channels with retry logic
  */
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         System.out.println("=== Integrated Finance Application ===\n");
 
         // Initialize all subsystems
         FinanceApp app = new FinanceApp();
+        
+        // Start WebSocket server (runs in background thread)
+        System.out.println("Starting WebSocket Price Feed Server...");
+        app.startWebSocketServer();
+        Thread.sleep(2000);  // Wait for server to start
+        
+        System.out.println();
         
         // Demonstrate real-time stock tracking
         demoStockTracking(app);
@@ -62,6 +69,11 @@ public class Main {
         
         // Demonstrate integrated transaction flow
         demoIntegratedFlow(app);
+        
+        System.out.println();
+        System.out.println("=== Demo Complete ===");
+        System.out.println("WebSocket server continues running at ws://localhost:8080");
+        System.out.println("Connect with: wscat -c ws://localhost:8080");
     }
 
     /**
@@ -80,12 +92,16 @@ public class Main {
         PriceUpdate update2 = new PriceUpdate("GOOGL", 2850.00, System.currentTimeMillis());
         PriceUpdate update3 = new PriceUpdate("MSFT", 380.25, System.currentTimeMillis());
 
-        System.out.println("Publishing price updates:");
+        System.out.println("Publishing price updates (broadcasting to WebSocket clients):");
         app.stockController.ingest(update1);
         System.out.println("  AAPL: $" + update1.getPrice());
         
+        try { Thread.sleep(500); } catch (InterruptedException e) {}
+        
         app.stockController.ingest(update2);
         System.out.println("  GOOGL: $" + update2.getPrice());
+        
+        try { Thread.sleep(500); } catch (InterruptedException e) {}
         
         app.stockController.ingest(update3);
         System.out.println("  MSFT: $" + update3.getPrice());
@@ -186,7 +202,9 @@ public class Main {
         // Step 1: Portfolio monitoring starts
         System.out.println("Step 1: Stock prices update");
         app.stockController.ingest(new PriceUpdate("AAPL", 151.00, System.currentTimeMillis()));
-        System.out.println("  AAPL price updated to $151.00");
+        System.out.println("  AAPL price updated to $151.00 (broadcast via WebSocket)");
+
+        try { Thread.sleep(500); } catch (InterruptedException e) {}
 
         // Step 2: Payment is processed
         System.out.println("\nStep 2: Process wire transfer");
@@ -213,7 +231,7 @@ public class Main {
         // Step 4: Portfolio updated
         System.out.println("\nStep 4: Update portfolio with latest prices");
         app.stockController.ingest(new PriceUpdate("GOOGL", 2851.50, System.currentTimeMillis()));
-        System.out.println("  Portfolio value updated with latest prices");
+        System.out.println("  Portfolio value updated with latest prices (broadcast via WebSocket)");
 
         System.out.println("\n✓ Complete user journey executed successfully");
     }
@@ -262,7 +280,7 @@ public class Main {
                 new InMemoryIdempotencyStore()
             );
 
-            // Initialize Real-Time Stock Tracking
+            // Initialize Real-Time Stock Tracking with WebSocket
             this.priceCache = new RedisPriceCache();
             this.portfolioRepository = new InMemoryPortfolioRepository();
             this.portfolioUpdateService = new PortfolioUpdateService(
@@ -270,7 +288,7 @@ public class Main {
                 portfolioRepository,
                 new PortfolioValuationService(priceCache)
             );
-            this.priceFeed = new WebSocketPriceFeed();
+            this.priceFeed = new WebSocketPriceFeed(8080);  // WebSocket on port 8080
             this.stockController = new Controller(priceFeed, portfolioUpdateService);
 
             // Initialize Notifications with Rate Limiting
@@ -293,6 +311,19 @@ public class Main {
             store.saveAccount(new Account("charlie-account", 75_000));
             store.saveAccount(new Account("user-savings", 1000_000));
             store.saveAccount(new Account("user-checking", 500_000));
+        }
+
+        void startWebSocketServer() throws Exception {
+            Thread wsThread = new Thread(() -> {
+                try {
+                    priceFeed.start();
+                } catch (Exception e) {
+                    System.err.println("WebSocket server error: " + e.getMessage());
+                    e.printStackTrace();
+                }
+            });
+            wsThread.setDaemon(true);
+            wsThread.start();
         }
     }
 }
